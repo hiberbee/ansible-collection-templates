@@ -1,0 +1,6 @@
+schemaVersion: 2.0.0
+
+fileExistenceTests:
+  - name: index.html
+    shouldExist: true
+    path: /usr/local/src/index.html

@@ -1,0 +1,4 @@
+- include_tasks: template.yml
+  loop: "{{ projects | default([]) }}"
+  vars:
+    workdir: "{{ projects_workdir }}/{{ item.provider }}/{{ item.owner }}/{{ item.name }}"

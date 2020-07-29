@@ -1,0 +1,5 @@
+- name: create {{ license }} in {{ workdir }}
+  template:
+    src: "{{ license }}.j2"
+    dest: "{{ workdir }}/LICENSE"
+  when: license is not false

@@ -1,0 +1,8 @@
+- name: clone {{ repository_url }} repository
+  git:
+    repo: "{{ repository_url }}"
+    dest: "{{ repository_dir }}"
+    update: false
+    accept_hostkey: true
+  tags:
+    - skip_ansible_lint

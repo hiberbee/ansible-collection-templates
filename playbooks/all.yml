@@ -1,0 +1,6 @@
+- hosts: all
+  connection: local
+  roles:
+    - Hiberbee.templates.git
+    - Hiberbee.templates.license
+    - Hiberbee.templates.editorconfig

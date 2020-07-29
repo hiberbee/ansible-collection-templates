@@ -1,0 +1,4 @@
+- name: create editor config in {{ workdir }}
+  template:
+    src: ".editorconfig.j2"
+    dest: "{{ workdir }}/.editorconfig"

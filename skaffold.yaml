@@ -1,0 +1,30 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+metadata:
+  name: project-templates
+build:
+  local:
+    useBuildkit: true
+    concurrency: 0
+    push: false
+    useDockerCLI: true
+  tagPolicy:
+    sha256: {}
+  artifacts:
+    - image: template-php-symfony
+      context: ../template-php-symfony
+    - image: template-java-cucumber
+      context: ../template-java-cucumber
+    - image: template-java-spring
+      jib: {}
+    - image: template-typescript-react
+      context: ../template-typescript-react
+    - image: template-typescript-graphql
+      context: ../template-typescript-graphql
+test:
+  - image: template-react-typescript
+    structureTests: [structure-test.yaml]
+profiles:
+  - name: development
+    activation:
+      - kubeContext: minikube
