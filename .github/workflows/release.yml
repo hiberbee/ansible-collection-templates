@@ -5,13 +5,17 @@ on:
       - "*.*.*"
 jobs:
   galaxy:
+    needs: [lint]
     name: Ansible Galaxy
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
-      - name: Build and Deploy Collection
+      - name: Get version from tag
+        id: version
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/tags/}
+      - name: Build and deploy collection
         uses: artis3n/ansible_galaxy_collection@v2
         with:
           api_key: ${{ secrets.GALAXY_API_KEY }}
-          galaxy_version: ${{ github.ref }}
+          galaxy_version: ${{ steps.version.outputs.tag }}
