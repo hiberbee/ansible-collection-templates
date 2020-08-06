@@ -4,10 +4,21 @@ on:
     tags:
       - "*.*.*"
 jobs:
+  lint:
+    name: Ansible Lint
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: playbooks/all
   galaxy:
-    needs: [lint]
     name: Ansible Galaxy
     runs-on: ubuntu-20.04
+    needs: [lint]
+    if: ${{ success() }}
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
