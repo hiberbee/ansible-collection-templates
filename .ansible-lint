@@ -1,0 +1,4 @@
+parseable: true
+skip_list:
+  - skip_ansible_lint
+  - 401 # Git checkouts must contain explicit version

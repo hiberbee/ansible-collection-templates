@@ -1,0 +1,24 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: gradle
+  author: vladyslavvolkov
+  description: Gradle configs generator
+  company: Hiberbee
+  license: "license (MIT)"
+  min_ansible_version: 2.0
+  platforms:
+    - name: Windows
+      versions:
+        - all
+    - name: macOS
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+  galaxy_tags:
+    - project
+    - editorconfig
+    - template

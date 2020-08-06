@@ -1,0 +1,17 @@
+name: Release
+on:
+  push:
+    tags:
+      - "*.*.*"
+jobs:
+  galaxy:
+    name: Ansible Galaxy
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+      - name: Build and Deploy Collection
+        uses: artis3n/ansible_galaxy_collection@v2
+        with:
+          api_key: ${{ secrets.GALAXY_API_KEY }}
+          galaxy_version: ${{ github.ref }}

@@ -1,0 +1,4 @@
+- name: setup {{ role_name }} wrapper version
+  template:
+    src: "{{ template | default('gradle-wrapper.properties.j2') }}"
+    dest: "{{ workdir }}/gradle/wrapper/gradle-wrapper.properties"

@@ -4,5 +4,4 @@
     dest: "{{ repository_dir }}"
     update: false
     accept_hostkey: true
-  tags:
-    - skip_ansible_lint
+    version: "{{ repository_version|default('HEAD') }}"
