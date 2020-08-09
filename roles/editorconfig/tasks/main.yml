@@ -1,2 +1,2 @@
 - include_tasks: template.yml
-  when: workdir is defined and editorconfig is defined
+  when: workdir is defined

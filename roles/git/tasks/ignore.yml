@@ -1,4 +1,4 @@
 - name: create git ignore in {{ workdir }}
   template:
-    src: "{{ git.ignore_template | default('.gitignore') }}.j2"
-    dest: "{{ workdir }}/.gitignore"
+      src: "{{ template | default('.gitignore') }}.j2"
+      dest: "{{ workdir }}/.gitignore"
