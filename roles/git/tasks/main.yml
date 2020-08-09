@@ -2,4 +2,4 @@
   when: repository_url is defined and workdir is defined
 
 - include_tasks: ignore.yml
-  when: workdir is defined
+  when: workdir is defined and git is defined
