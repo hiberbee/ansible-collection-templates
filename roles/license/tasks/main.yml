@@ -1,5 +1,2 @@
 - include_tasks: template.yml
-  loop: "{{ projects }}"
-  vars:
-    license: "{{ item.license | default(false) }}"
-    workdir: "{{ projects_workdir }}/{{ item.provider }}/{{ item.owner }}/{{ item.name }}"
+  when: workdir is defined

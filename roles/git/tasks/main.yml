@@ -1,11 +1,5 @@
 - include_tasks: clone.yml
-  loop: "{{ projects }}"
-  vars:
-    repository_url: "git@{{ item.provider }}:{{ item.owner }}/{{ item.name }}.git"
-    repository_dir: "{{ projects_workdir }}/{{ item.provider }}/{{ item.owner }}/{{ item.name }}"
+  when: repository_url is defined and workdir is defined
 
 - include_tasks: ignore.yml
-  loop: "{{ projects }}"
-  vars:
-    gitignore: "{{ item.gitignore | default('') }}"
-    workdir: "{{ projects_workdir }}/{{ item.provider }}/{{ item.owner }}/{{ item.name }}"
+  when: workdir is defined

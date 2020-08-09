@@ -1,7 +1,7 @@
 - name: clone {{ repository_url }} repository
   git:
     repo: "{{ repository_url }}"
-    dest: "{{ repository_dir }}"
+    dest: "{{ workdir }}"
     update: false
     accept_hostkey: true
     version: "{{ repository_version|default('HEAD') }}"
